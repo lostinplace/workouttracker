@@ -1,3 +1,8 @@
 {
-  "oadp"
+  "oadp":"One Arm Dumbell Press",
+  "idc":"Inclined Dumbell Curl",
+  "idp":"Inclined Dumbell Press",
+  "ifly":"Inclined Fly",
+  "curl":"Biceps Curl",
+  "dsp":"Dumbell Shoulder Press"
 }
