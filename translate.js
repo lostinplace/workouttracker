@@ -18,7 +18,10 @@ function getTypedSet(aSet){
   return result;
 }
 
-var measurementDate = new Date(process.argv[2]),
+
+var dStoreText = fs.readFileSync('data.json').toString(),
+  dStore = JSON.parse(dStoreText),
+  measurementDate = new Date(process.argv[2]),
   textFormat = new RegExp(/(\d*)\s+([^\d]*)\s+(\d*)/),
   text = fs.readFileSync(process.argv[2]).toString(),
   setsTextLines = text.split(/\n/),
@@ -28,8 +31,8 @@ var measurementDate = new Date(process.argv[2]),
   sets=setsLines.map(function(line){
       return textFormat.exec(line).slice(1);
     }),
-  typedSets = sets.map(getTypedSet),
-  result = {};
-  result[measurementDate.toString()] = typedSets;
+  typedSets = sets.map(getTypedSet);
+  
+  dStore[measurementDate.toString()] = typedSets;
 
-console.log(JSON.stringify(result));
+fs.writeFileSync('data.json',JSON.stringify(dStore));
