@@ -1,7 +1,8 @@
 'use strict';
 
 var fs = require('fs'),
-  eDict = require('./exercise-dictionary.json');
+  eDict = require('./exercise-dictionary.json'),
+  _ = require('lodash');
 
 if(!process.argv[2]) {
   throw 'must supply a filename as argument';
@@ -12,9 +13,13 @@ function getTypedSet(aSet){
     translatedExercise = eDict[exerciseString] || aSet[1],
   result = {
     weight: aSet[0],
-    exercise: translatedExercise,
     reps: aSet[2]
   };
+  if(typeof(translatedExercise)==='object'){
+    result=_.merge(result,translatedExercise);
+  } else {
+    result.exercise = translatedExercise;
+  }
   return result;
 }
 

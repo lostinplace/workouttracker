@@ -4,5 +4,11 @@
   "idp":"Inclined Dumbell Press",
   "ifly":"Inclined Fly",
   "curl":"Biceps Curl",
-  "dsp":"Dumbell Shoulder Press"
+  "dsp":"Dumbell Shoulder Press",
+  "bcurl": {
+    "exercise":"Biceps Curl",
+    "tags":[
+      "bench assisted"
+    ]
+  }
 }
